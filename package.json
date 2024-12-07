@@ -1,0 +1,20 @@
+{
+  "name": "judge-me-tests",
+  "version": "1.0.0",
+  "description": "Automated tests for Judge.me reviews using Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "test:open": "cypress open",
+    "test:ci": "cypress run --headless",
+    "test:smoke": "cypress run --spec 'cypress/e2e/smoke.cy.js'",
+    "lint": "eslint cypress/"
+  },
+  "devDependencies": {
+    "cypress": "^13.6.0",
+    "cypress-axe": "^1.5.0",
+    "@cypress/xpath": "^2.0.3",
+    "eslint": "^8.56.0",
+    "eslint-plugin-cypress": "^2.15.1"
+  }
+}
