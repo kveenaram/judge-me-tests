@@ -1,5 +1,5 @@
 // cypress/e2e/smoke.cy.js
-import ReviewsPage from '../support/page-objects/reviews-page'
+import ReviewsPage from '../support/page-objects/reviews-page';
 
 describe('Judge.me Reviews - Smoke Tests', () => {
     beforeEach(() => {

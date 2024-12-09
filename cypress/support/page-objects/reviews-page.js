@@ -12,7 +12,7 @@ class ReviewsPage extends BasePage {
             reviewsContainer: '.reviews-container',
             reviewItem: '.review-item',
             searchSuggestions: '.dropdown',
-            searchResults: '.search-results',      // Container for results
+            searchResults: '.search-results',    
             pageTitle: 'h1'
         }
     }
