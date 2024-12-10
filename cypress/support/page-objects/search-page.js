@@ -1,7 +1,7 @@
-// cypress/support/page-objects/reviews-page.js
+// cypress/support/page-objects/search-page.js
 import BasePage from './base-page'
 
-class ReviewsPage extends BasePage {
+class SearchPage extends BasePage {
     constructor() {
         super()
         // Use configuration instead of hardcoded URL
@@ -12,7 +12,7 @@ class ReviewsPage extends BasePage {
             reviewsContainer: '.reviews-container',
             reviewItem: '.review-item',
             searchSuggestions: '.dropdown',
-            searchResults: '.search-results',    
+            searchResults: '.search-results',
             pageTitle: 'h1'
         }
     }
@@ -90,4 +90,4 @@ class ReviewsPage extends BasePage {
     }
 }
 
-export default new ReviewsPage()
+export default new SearchPage()
