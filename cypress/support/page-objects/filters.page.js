@@ -14,7 +14,12 @@ class FiltersPage extends BasePage {
         shipCountrySelect: () => cy.get('.country-dropdown__select-padding-flag'),
         babyCategory: () => cy.contains('Baby'),
         searchResultsCount: () => cy.get('.search-results__result-heading'),
+        productCard: () => cy.get('.product-search-card.search-result-card'),
+    }
 
+    selectFirstProduct() {
+        this.elements.productCard().first().click();
+        return this;
     }
 
     verifyResultsCountGreaterThanZero() {
