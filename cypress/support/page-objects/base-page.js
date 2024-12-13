@@ -1,4 +1,4 @@
-// cypress/support/page-objects/base-page.js
+// cypress/support/page-objects/base.page.js
 export default class BasePage {
     constructor() {
         this.selectors = {
@@ -7,11 +7,14 @@ export default class BasePage {
         }
     }
 
-    visit(url) {
-        // Fix the visit method to properly handle URLs
-        return cy.visit(url, {
+    visit(path) {
+        cy.visit(path, {
             timeout: 60000,
             failOnStatusCode: false
         })
+    }
+
+    getElement(selector, options = { timeout: 10000 }) {
+        return cy.get(selector, options)
     }
 }

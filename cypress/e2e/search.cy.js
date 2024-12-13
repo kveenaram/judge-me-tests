@@ -1,69 +1,69 @@
-// cypress/e2e/smoke.cy.js
-import ReviewsPage from '../support/page-objects/reviews-page'
+// cypress/e2e/search.cy.js
+import SearchPage from '../support/page-objects/search-page';
 
-describe('Judge.me Reviews - Smoke Tests', () => {
+describe('Judge.me Reviews - Search Tests', () => {
     beforeEach(() => {
-        ReviewsPage.visit()
+        SearchPage.visit()
     })
 
     describe('Basic Search Functionality', () => {
         it('performs basic product search', () => {
             const searchTerm = 'shirt'
 
-            cy.get(ReviewsPage.selectors.searchInput)
+            cy.get(SearchPage.selectors.searchInput)
                 .should('be.visible')
                 .and('be.enabled')
 
-            ReviewsPage.search(searchTerm)
-            ReviewsPage.verifySearchResults(searchTerm)
+            SearchPage.search(searchTerm)
+            SearchPage.verifySearchResults(searchTerm)
         })
 
         it('handles special characters in search', () => {
             const specialChars = '!!'
-            ReviewsPage.search(specialChars)
-            ReviewsPage.verifyNoResults(specialChars)
+            SearchPage.search(specialChars)
+            SearchPage.verifyNoResults(specialChars)
         })
     })
 
     describe('Search Suggestions', () => {
         it('shows search suggestions while typing', () => {
             const partialTerm = 'shi'
-            ReviewsPage.typeSearch(partialTerm)
-            ReviewsPage.getSearchSuggestions().should('be.visible').and('not.be.empty')
+            SearchPage.typeSearch(partialTerm)
+            SearchPage.getSearchSuggestions().should('be.visible').and('not.be.empty')
         })
     })
 
     describe('Search Input Validation', () => {
         it('handles long search terms', () => {
             const longSearchTerm = 'a'.repeat(50)
-            ReviewsPage.search(longSearchTerm)
-            ReviewsPage.verifyNoResults(longSearchTerm)
+            SearchPage.search(longSearchTerm)
+            SearchPage.verifyNoResults(longSearchTerm)
         })
 
         it('handles spaces in search terms', () => {
             const termWithSpaces = 'blue shirt'
-            ReviewsPage.search(termWithSpaces)
-            ReviewsPage.verifySpaceSearchResults(termWithSpaces)
+            SearchPage.search(termWithSpaces)
+            SearchPage.verifySpaceSearchResults(termWithSpaces)
         })
 
         it('trims whitespace from search terms', () => {
             const untrimmedTerm = '  shirt  '
-            ReviewsPage.search(untrimmedTerm)
-            ReviewsPage.verifyTrimmedSearchResults(untrimmedTerm)
+            SearchPage.search(untrimmedTerm)
+            SearchPage.verifyTrimmedSearchResults(untrimmedTerm)
         })
     })
 
     describe('Edge Cases', () => {
         it('handles empty search input', () => {
-            ReviewsPage.search('{enter}')
-            ReviewsPage.verifyPageLoaded()
+            SearchPage.search('{enter}')
+            SearchPage.verifyPageLoaded()
         })
 
         it('maintains search term after page refresh', () => {
             const searchTerm = 'shirt'
-            ReviewsPage.search(searchTerm)
+            SearchPage.search(searchTerm)
             cy.reload()
-            ReviewsPage.verifySearchResults(searchTerm)
+            SearchPage.verifySearchResults(searchTerm)
         })
 
     })
